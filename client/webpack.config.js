@@ -25,6 +25,7 @@ const config = {
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
+      './app/bundles/momentCard/startup/registration',
       './app/bundles/momentDashboards/startup/registration',
       './app/bundles/shared/startup/registration',
     ],
