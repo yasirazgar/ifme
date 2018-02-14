@@ -62,6 +62,21 @@
           </div>
         </div>
 
+        <div class="field">
+          <div class="label">
+            <%= f.label t('medications.form.weekly_dosage'), for: 'medication_weekly_dosage' %>
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.weekly_dosage_hint')) %>
+              <i class="fa fa-asterisk"></i>
+            <div class="clear"></div>
+          </div>
+          <div class="inline-block">
+            <% (0..6).each do |day| %>
+              <%= check_box_tag 'medication[weekly_dosage][]', day, @medication.weekly_dosage.include?(day) %> 
+              <%= I18n.t('common.date.abbr_day_names')[day] %>
+            <% end %>
+          </div>
+        </div>
+
         <div class="field refill_medication">
           <div class="label">
             <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
