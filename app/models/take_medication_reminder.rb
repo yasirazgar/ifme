@@ -15,6 +15,8 @@ class TakeMedicationReminder < ApplicationRecord
   belongs_to :medication
   validates :active, inclusion: { in: [true, false] }
   scope :active, -> { where(active: true) }
+  scope :daily, -> { joins(:medication).where("array_length(medications.weekly_dosage, 1) = 7") }
+  scope :weekly, -> { joins(:medication).where("array_length(medications.weekly_dosage, 1) != 7") }
 
   def name
     I18n.t('common.daily_reminder')
