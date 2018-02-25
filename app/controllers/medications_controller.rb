@@ -55,7 +55,7 @@ class MedicationsController < ApplicationController
 
   # PATCH/PUT /medications/1
   # PATCH/PUT /medications/1.json
-  def update        
+  def update
     return unless save_refill_to_google_calendar(@medication)
     if @medication.update(medication_params)
       redirect_to_medication(@medication)
